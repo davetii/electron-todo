@@ -60,10 +60,13 @@ const menuTemplate = [
 if(process.env.NODE_ENV !== 'production') {
     menuTemplate.push({
         label: 'View',
-        submenu: [{
+        submenu: [
+            { role: 'reload'},
+            {
             label: 'Developer Tools',
             accelerator : process.platform === 'darwin' ? 'Command+Alt+I' : 'Ctrl+Shift+I',
             click(item,focusedWindow) { focusedWindow.toggleDevTools(); }
-        }]
+            }
+        ]
     })
 }
