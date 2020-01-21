@@ -21,7 +21,7 @@
         document.querySelector('form').addEventListener('submit',  (event) => {
             event.preventDefault();
             const {value} = document.querySelector('input');
-            ipcRenderer.send('on-add-todo', 'value');
+            ipcRenderer.send('on-add-todo', value);
         });
     </script>
 </body>

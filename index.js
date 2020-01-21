@@ -1,4 +1,4 @@
-const electron  = require('electron');
+electron  = require('electron');
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 let mainWindow;
 let addWindow;
@@ -31,6 +31,7 @@ function createAddWindow() {
         height: 200,
         title: 'Add new Todo'
     });
+    addWindow.on('closed', () => { addWindow = null; });
     addWindow.loadURL(`file://${__dirname}/add.html`);
 }
 
