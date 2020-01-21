@@ -3,6 +3,7 @@ Simple Electron Todo App to learn how to use it. Created this will going though 
 
 ## Pending Changes
 * Remove a Unique Item from list
+* Add a test framework
 * Style the application
 * Experiment with Persistence: Save locally
 * Experiment with Persistence: Save remotely

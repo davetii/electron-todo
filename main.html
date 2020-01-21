@@ -11,7 +11,7 @@
 <script>
     const electron = require('electron');
     const {ipcRenderer } = electron;
-    const  list = document.querySelector('ul')
+    const  list = document.querySelector('ul');
     ipcRenderer.on('on-add-todo', (event, todo) => {
         const li = document.createElement('li');
         const text = document.createTextNode(todo);
@@ -19,7 +19,7 @@
         list.append(li);
     });
 
-    ipcRenderer.on('on-clear-all', (event, todo) => {
+    ipcRenderer.on('on-clear-all', () => {
         list.innerHTML = "";
     });
 

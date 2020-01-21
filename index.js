@@ -64,7 +64,7 @@ const menuTemplate = [
 
 
 if(process.env.NODE_ENV !== 'production') {
-    menuTemplate.push({
+    menuTemplate.push( {
         label: 'View',
         submenu: [
             { role: 'reload'},
@@ -74,5 +74,5 @@ if(process.env.NODE_ENV !== 'production') {
             click(item,focusedWindow) { focusedWindow.toggleDevTools(); }
             }
         ]
-    })
+    });
 }
