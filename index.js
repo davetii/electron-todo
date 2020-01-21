@@ -48,3 +48,17 @@ const menuTemplate = [
         ]
     }
  ];
+
+
+if(process.env.NODE_ENV !== 'production') {
+    menuTemplate.push({
+        label: 'View',
+        submenu: [{
+            label: 'Developer Tools',
+            accelerator : 'Ctrl+Shift+J',
+            click(item,focusedWindow) {
+                focusedWindow.toggleDevTools();
+            }
+        }]
+    })
+}
