@@ -16,7 +16,12 @@ const menuTemplate = [
     {
         label: 'File',
         submenu: [
-            {label: 'Add Todo'}
+            {label: 'Add Todo'},
+            {label: 'Quit',
+                click() {
+                    app.quit();
+                }
+            },
         ]
     }
  ];
