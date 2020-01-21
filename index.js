@@ -1,5 +1,5 @@
 const electron  = require('electron');
-const {app, BrowserWindow, Menu} = electron;
+const {app, BrowserWindow, Menu, ipcMain} = electron;
 let mainWindow;
 let addWindow;
 
@@ -15,6 +15,12 @@ app.on('ready', () => {
     const mainMenu = Menu.buildFromTemplate(menuTemplate);
     Menu.setApplicationMenu(mainMenu);
 });
+
+ipcMain.on('on-add-todo', (event, todo) => {
+    mainWindow.webContents.send('on-add-todo',todo);
+    addWindow.close();
+});
+
 
 function createAddWindow() {
     addWindow = new BrowserWindow({
@@ -55,10 +61,8 @@ if(process.env.NODE_ENV !== 'production') {
         label: 'View',
         submenu: [{
             label: 'Developer Tools',
-            accelerator : 'Ctrl+Shift+J',
-            click(item,focusedWindow) {
-                focusedWindow.toggleDevTools();
-            }
+            accelerator : process.platform === 'darwin' ? 'Command+Alt+I' : 'Ctrl+Shift+I',
+            click(item,focusedWindow) { focusedWindow.toggleDevTools(); }
         }]
     })
 }
