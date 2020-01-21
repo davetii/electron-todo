@@ -46,6 +46,12 @@ const menuTemplate = [
                 }
             },
             {
+                label: 'Clear All ToDos',
+                click() {
+                    mainWindow.webContents.send('on-clear-all','');
+                }
+            },
+            {
                 label: 'Quit',
                 accelerator : process.platform === 'darwin' ? 'Command+Q' : 'Ctrl+Q',
                 click() {

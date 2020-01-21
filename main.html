@@ -18,6 +18,9 @@
         document.querySelector('ul').append(li);
     });
 
+    ipcRenderer.on('on-clear-all', (event, todo) => {
+        document.querySelector('ul').innerHTML = "";
+    });
 
 </script>
 </html>
